@@ -5,15 +5,15 @@
           android:title="@string/home"
           android:icon="@drawable/ic_home_black_24dp"/>
 
+    <item android:id="@+id/nv_book"
+          android:title="@string/address_book"
+          android:icon="@drawable/ic_person_add_black_24dp"/>
+
     <item android:id="@+id/nv_find"
           android:title="@string/find"
           android:icon="@drawable/ic_explore_black_24dp"/>
 
     <item android:id="@+id/nv_mine"
-          android:title="@string/mine"
-          android:icon="@drawable/ic_person_black_24dp"/>
-
-    <item android:id="@+id/nv_mined"
           android:title="@string/mine"
           android:icon="@drawable/ic_person_black_24dp"/>
 
