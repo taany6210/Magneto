@@ -47,6 +47,10 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
     implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.8.0'
 
+
+    //Utils
+    implementation 'com.blankj:utilcode:1.9.8'
+
     //test
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0-beta02'

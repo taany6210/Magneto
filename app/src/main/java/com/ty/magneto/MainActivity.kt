@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import com.blankj.utilcode.util.LogUtils
 import com.ty.magneto.bean.Find
 import com.ty.magneto.bean.User
 import com.ty.magneto.databinding.ActivityMainBinding
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity() {
             .subscribe(object : TObserver<Find>() {
                 override fun onSuccess(it: Find) {
                     if (it.ok) {
-                        println(it.male.first().title)
+                        LogUtils.e(it.male.first().title)
                     }else{
                         println("失败了")
                     }
