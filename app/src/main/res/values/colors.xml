@@ -3,4 +3,23 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#000000</color>
+
+    <color name="ty_111111">#FF111111</color>
+    <color name="ty_222222">#FF222222</color>
+    <color name="ty_333333">#FF333333</color>
+    <color name="ty_444444">#FF444444</color>
+    <color name="ty_555555">#FF555555</color>
+    <color name="ty_666666">#FF666666</color>
+    <color name="ty_777777">#FF777777</color>
+    <color name="ty_888888">#FF888888</color>
+    <color name="ty_999999">#FF999999</color>
+    <color name="ty_AAAAAA">#FFAAAAAA</color>
+    <color name="ty_BBBBBB">#FFBBBBBB</color>
+    <color name="ty_CCCCCC">#FFCCCCCC</color>
+    <color name="ty_DDDDDD">#FFDDDDDD</color>
+    <color name="ty_EEEEEE">#FFEEEEEE</color>
+
 </resources>

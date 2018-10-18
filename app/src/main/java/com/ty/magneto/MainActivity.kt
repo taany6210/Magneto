@@ -17,6 +17,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
 
+        binding.bnvMain.setTextVisibility(true)
+        binding.bnvMain.enableAnimation(true)
+        binding.bnvMain.enableShiftingMode(false)
+        binding.bnvMain.enableItemShiftingMode(false)
+
+
         binding.user = User("张三", "123456")
 
         println(binding.user)
