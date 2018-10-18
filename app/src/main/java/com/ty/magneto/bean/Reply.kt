@@ -20,3 +20,22 @@ data class User(
     var username: String,
     var password: String
 ) : BaseBean()
+
+
+data class Category(
+    var _id: String,
+    var title: String,
+    var cover: String,
+    var collapse: Boolean,
+    var shortTitle: String,
+    var check: Boolean,
+    var index: Int
+) : BaseBean()
+
+data class Find(
+    var epub: List<Category>,
+    var female: List<Category>,
+    var picture: List<Category>,
+    var male: List<Category>,
+    var ok: Boolean
+) : BaseBean()

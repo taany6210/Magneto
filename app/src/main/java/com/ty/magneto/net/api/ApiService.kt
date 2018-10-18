@@ -1,10 +1,12 @@
-package com.ty.magneto.api
+package com.ty.magneto.net.api
 
+import com.ty.magneto.bean.Find
 import com.ty.magneto.bean.Reply
 import com.ty.magneto.bean.User
 import io.reactivex.Observable
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
 import retrofit2.http.POST
 
 /**
@@ -23,4 +25,11 @@ interface ApiService {
         @Field("username") username: String,
         @Field("password") password: String
     ): Observable<Reply<User>>
+
+
+    /**
+     * 获取排行榜
+     */
+    @GET("api/v1/novel/rank-category")
+    fun rankCategory(): Observable<Reply<Find>>
 }

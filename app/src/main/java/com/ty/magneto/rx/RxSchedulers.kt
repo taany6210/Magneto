@@ -10,7 +10,7 @@ import io.reactivex.schedulers.Schedulers
  * @ 时间:    2018/10/18 20:45
  * @ 描述:    线程调度
  */
-class RxSchedulers<T> {
+object RxSchedulers {
     fun <T> compose(): ObservableTransformer<T, T> {
         return ObservableTransformer { observable ->
             observable.subscribeOn(Schedulers.io())

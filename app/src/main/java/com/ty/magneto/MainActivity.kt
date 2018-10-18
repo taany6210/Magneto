@@ -1,13 +1,16 @@
 package com.ty.magneto
 
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import com.google.android.material.bottomnavigation.LabelVisibilityMode
+import com.ty.magneto.bean.Find
 import com.ty.magneto.bean.User
 import com.ty.magneto.databinding.ActivityMainBinding
+import com.ty.magneto.net.retrofit.RetrofitApi
+import com.ty.magneto.rx.RxSchedulers
+import com.ty.magneto.rx.TObserver
+
 
 /**
  * @ 创建者:   ty
@@ -33,5 +36,20 @@ class MainActivity : AppCompatActivity() {
         binding.bnvMain.setOnNavigationItemReselectedListener {
             Toast.makeText(this, it.title.toString() + "重复选择", Toast.LENGTH_SHORT).show()
         }
+
+
+        val subscribe = RetrofitApi.apiService
+            .rankCategory()
+            .compose(RxSchedulers.compose())
+            .subscribe(object : TObserver<Find>() {
+                override fun onSuccess(it: Find) {
+                    if (it.ok) {
+                        println(it.male.first().title)
+                    }else{
+                        println("失败了")
+                    }
+                }
+            })
+
     }
 }
