@@ -1,10 +1,15 @@
-package com.ty.magneto
+package com.ty.magneto.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.databinding.DataBindingUtil
 import com.blankj.utilcode.util.LogUtils
+import com.ty.loadingpager.LoadingPager
+import com.ty.magneto.R
+import com.ty.magneto.base.BaseActivity
 import com.ty.magneto.bean.Find
 import com.ty.magneto.bean.User
 import com.ty.magneto.databinding.ActivityMainBinding
@@ -18,10 +23,12 @@ import com.ty.magneto.rx.TObserver
  * @ 时间:    2018/10/18 15:51
  * @ 描述:    main
  */
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity<ActivityMainBinding>() {
+    override fun getLayoutId(): Int {
+        return R.layout.activity_main
+    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun initView(savedInstanceState: Bundle?) {
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
 
         binding.user = User("张三", "123456")
@@ -46,11 +53,24 @@ class MainActivity : AppCompatActivity() {
                 override fun onSuccess(it: Find) {
                     if (it.ok) {
                         LogUtils.e(it.male.first().title)
-                    }else{
+                    } else {
                         println("失败了")
                     }
                 }
             })
 
+
+        val constraintSet = ConstraintSet()
+        //constraintSet.clone()
+
+    }
+
+    override fun initData(savedInstanceState: Bundle?) {
+        mPager?.onDataLoading(LoadingPager.LoadedResult.SUCCESS)
+    }
+
+    fun splash(view:View) {
+        val intent = Intent(this, SplashActivity::class.java)
+        startActivity(intent)
     }
 }
