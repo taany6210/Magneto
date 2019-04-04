@@ -3,14 +3,14 @@
 
     <data>
 
-        <import type="android.view.View" />
+        <import type="android.view.View"/>
     </data>
 
-    <LinearLayout
-        android:id="@+id/base_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/base_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

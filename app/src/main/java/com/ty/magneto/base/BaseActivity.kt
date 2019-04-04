@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.ty.loadingpager.LoadingPager
@@ -12,7 +11,7 @@ import com.ty.magneto.R
 import com.ty.magneto.databinding.ActivityBaseBinding
 
 
-abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity() {
+abstract class BaseActivity<B : ViewDataBinding> : AutoDisposeActivity() {
 
     protected var mPager: LoadingPager? = null
     protected lateinit var mBinding: B
@@ -33,32 +32,6 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity() {
         val params = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT
         )
-        /*var loadingPager = object : LoadingPager(this@BaseActivity){
-            override fun onCreateSuccessView(): View {
-                mBinding = DataBindingUtil.inflate(layoutInflater, getLayoutId(), null, false)
-                initView(savedInstanceState)
-                initListener()
-                return mBinding.root
-            }
-
-            override fun onStartLoadData() {
-                initData(savedInstanceState)
-            }
-
-            override fun onDataLoading(result: LoadedResult) {
-                super.onDataLoading(result)
-                if (result === LoadedResult.SUCCESS) {
-                    if (needInit) {
-                        needInit = false
-                    }
-                }
-            }
-
-            override fun reloadData() {
-                super.reloadData()
-                this@BaseActivity.reloadData()
-            }
-        }*/
 
         if (mPager == null) {
             mPager = object : LoadingPager(this@BaseActivity, null) {
@@ -78,7 +51,7 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity() {
                     return mBinding.root
                 }
 
-                override fun onDataLoading(result:LoadedResult) {
+                override fun onDataLoading(result: LoadedResult) {
                     super.onDataLoading(result)
                     if (result == LoadedResult.SUCCESS) {
                         if (needInit) {
@@ -96,6 +69,7 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity() {
         mPager!!.loadData()
         rootLayout.addView(mPager, params)
         setContentView(rootLayout)
+
     }
 
     /**
@@ -128,4 +102,9 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity() {
      * 重新加载数据  错误或者空页面点击
      */
     protected fun reloadData() {}
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mBinding.unbind()
+    }
 }

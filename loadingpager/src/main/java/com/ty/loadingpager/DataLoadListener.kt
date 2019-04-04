@@ -6,6 +6,5 @@ package com.ty.loadingpager
  * @ 描述:
  */
 interface DataLoadListener {
-    //fun onDataLoading(result: LoadingPager.STATE)
     fun onDataLoading(result: LoadingPager.LoadedResult)
 }

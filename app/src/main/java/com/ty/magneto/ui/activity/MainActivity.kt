@@ -1,5 +1,6 @@
 package com.ty.magneto.ui.activity
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -28,6 +29,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         return R.layout.activity_main
     }
 
+    @SuppressLint("AutoDispose")
     override fun initView(savedInstanceState: Bundle?) {
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
 

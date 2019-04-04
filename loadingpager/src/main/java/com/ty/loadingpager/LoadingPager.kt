@@ -116,7 +116,7 @@ abstract class LoadingPager @JvmOverloads constructor(context: Context, attrs: A
      * 根据状态显示view
      */
     private fun safeUpdateUIStyle() {
-        //Runnable { updateUIStyle() }
+        Runnable { updateUIStyle() }
     }
 
     private fun updateUIStyle() {
